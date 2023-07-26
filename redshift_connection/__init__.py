@@ -1,0 +1,1 @@
+from redshift_connection.connection import RedshiftConnection as RedshiftConnection
