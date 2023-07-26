@@ -35,7 +35,7 @@ class RedshiftConnection(ExperimentalBaseConnection[redshift_connector.Connectio
             
         return redshift_connector.connect(host=hh,database=db, user=uu, password=pp, **kwargs)
     
-    def cursor(self) -> redshift_connector.connect:
+    def cursor(self) -> redshift_connector.Connection:
         return self._instance.cursor()
 
     def query(self, query: str, ttl: int = 3600, **kwargs) -> pd.DataFrame:
