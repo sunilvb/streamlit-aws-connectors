@@ -13,8 +13,6 @@ class RedshiftConnection(ExperimentalBaseConnection[redshift_connector.Connectio
     """Basic st.experimental_connection implementation for Amazon Redshift"""
 
     def _connect(self, **kwargs) -> redshift_connector.Connection:
-        logger.info("****** Inside _connect *****")
-        
         if 'database' in kwargs:
             db = kwargs.pop('database')
         else:
@@ -22,25 +20,19 @@ class RedshiftConnection(ExperimentalBaseConnection[redshift_connector.Connectio
 
         if 'user' in kwargs:
             uu = kwargs.pop('user')
-            logger.info("****** got user in kwargs *****")
         else:
             uu = self._secrets['user']
-            logger.info("****** got user in _secrets *****")
 
         if 'password' in kwargs:
             pp = kwargs.pop('password')
-            logger.info("****** Inside _connect in kwargs *****")
         else:
             pp = self._secrets['password']
-            logger.info("****** got password in _secrets *****")
 
         if 'host' in kwargs:
             hh = kwargs.pop('host')
-            logger.info("****** Inside _connect in kwargs *****")
         else:
             hh = self._secrets['host']
-            logger.info("****** got host in _secrets *****")    
-
+            
         return redshift_connector.connect(host=hh,database=db, user=uu, password=pp, **kwargs)
     
     def cursor(self) -> redshift_connector.connect:
