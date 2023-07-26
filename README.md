@@ -1,4 +1,6 @@
 # streamlit-aws-connectors
+# Amazon Redshift
+
 Accessing Amazon Redshift from outside the Amazon Virtual Private Cloud (VPC) requires a combination of network and security settings to ensure both accessibility and security. Here are the detailed steps to achieve this:
 
 1. **Create a Redshift Cluster in a VPC**:
