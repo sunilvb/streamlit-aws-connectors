@@ -1,7 +1,7 @@
 # streamlit-aws-connectors
 
 ## Sample app [Live](https://app-aws-connectors-sunil-vishnubhotla.streamlit.app/)
-Deploy your secrets using the template from .streamlit/secrets.toml file. It's generally considered bad practice to store unencrypted secrets in a git repository. If your application needs access to sensitive credentials the recommended solution is to store those credentials in a file that is not committed to the repository and to pass them as environment variables.
+Deploy your secrets using the template from .streamlit/secrets.toml file. This is just helper file and should only be used while in dev and testing. It's generally considered bad practice to store unencrypted secrets in a git repository. If your application needs access to sensitive credentials the recommended solution is to store those credentials in a file that is not committed to the repository and to pass them as environment variables.
 
 Deploy an app and set up secrets [Secrets Management](https://docs.streamlit.io/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). Secrets Management allows you to store secrets securely and access them in your Streamlit app as environment variables. 
 
