@@ -43,6 +43,6 @@ class RedshiftConnection(ExperimentalBaseConnection[redshift_connector.Connectio
         def _query(query: str, **kwargs) -> pd.DataFrame:
             cursor = self.cursor()
             cursor.execute(query, **kwargs)
-            return cursor.df()
+            return cursor.fetch_dataframe()
         
         return _query(query, **kwargs)
