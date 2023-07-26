@@ -34,7 +34,14 @@ class RedshiftConnection(ExperimentalBaseConnection[redshift_connector.Connectio
             pp = self._secrets['password']
             logger.info("****** got password in _secrets *****")
 
-        return redshift_connector.connect(database=db, user=uu, password=pp, **kwargs)
+        if 'host' in kwargs:
+            hh = kwargs.pop('host')
+            logger.info("****** Inside _connect in kwargs *****")
+        else:
+            hh = self._secrets['host']
+            logger.info("****** got host in _secrets *****")    
+
+        return redshift_connector.connect(host=hh,database=db, user=uu, password=pp, **kwargs)
     
     def cursor(self) -> redshift_connector.connect:
         return self._instance.cursor()
