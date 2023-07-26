@@ -1,4 +1,7 @@
 # streamlit-aws-connectors
+
+## Sample app [Live](https://app-aws-connectors-sunil-vishnubhotla.streamlit.app/)
+
 # Amazon Redshift
 
 Accessing Amazon Redshift from outside the Amazon Virtual Private Cloud (VPC) requires a combination of network and security settings to ensure both accessibility and security. Here are the detailed steps to achieve this:
