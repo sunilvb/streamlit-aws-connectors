@@ -13,8 +13,8 @@ class RedshiftConnection(ExperimentalBaseConnection[redshift_connector.Connectio
     """Basic st.experimental_connection implementation for Amazon Redshift"""
 
     def _connect(self, **kwargs) -> redshift_connector.Connection:
-        logger.info('****** Inside _connect ***** ')
-        logger.info(**kwargs)
+        logger.info("****** Inside _connect *****")
+        
         if 'database' in kwargs:
             db = kwargs.pop('database')
         else:
