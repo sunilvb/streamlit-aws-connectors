@@ -3,15 +3,23 @@ from streamlit.runtime.caching import cache_data
 
 import redshift_connector
 import pandas as pd
+from streamlit.logger import get_logger
+
+logger = get_logger(__name__)
+
+
 
 class RedshiftConnection(ExperimentalBaseConnection[redshift_connector.Connection]):
     """Basic st.experimental_connection implementation for Amazon Redshift"""
 
     def _connect(self, **kwargs) -> redshift_connector.Connection:
+        logger.info('****** Inside _connect ***** ')
+        logger.info(**kwargs)
         if 'database' in kwargs:
             db = kwargs.pop('database')
         else:
             db = self._secrets['database']
+
         return redshift_connector.connect(database=db, **kwargs)
     
     def cursor(self) -> redshift_connector.connect:
